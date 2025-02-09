@@ -17,9 +17,10 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["src/api/*"],
-      "@page/*": ["src/page/*"],
-      "@util/*": ["src/util/*"]
+      "@apis/*": ["src/apis/*"],
+      "@pages/*": ["src/pages/*"],
+      "@models/*": ["src/models/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src"],
