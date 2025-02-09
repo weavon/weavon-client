@@ -1,9 +1,9 @@
-import { AuthLoginRequest } from "@apis/auth/model/AuthLogin";
+import { AuthLoginRequest } from "@apis/auth/models/AuthLogin";
 import { RestErrorResponse, RestResponse } from "@models/RestResponse";
 import { useMutation } from "@tanstack/react-query";
 import rest from "@utils/rest";
 
-const useAuthLoginMutation = () => {
+const usePostAuthLogin = () => {
   const mutationFn = async (request: AuthLoginRequest) => {
     return await rest.post("/auth/login", request);
   };
@@ -15,4 +15,4 @@ const useAuthLoginMutation = () => {
   );
 };
 
-export default useAuthLoginMutation;
+export default usePostAuthLogin;
