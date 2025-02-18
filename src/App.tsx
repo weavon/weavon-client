@@ -4,10 +4,9 @@ import { ThemeProvider } from "@mui/material";
 
 import GlobalTheme from "@assets/themes/GlobalTheme";
 
+import queryClient from "@configs/queryClient";
+
 import AppRouter from "@routers/AppRouter";
-
-
-import queryClient from "@utils/queryClient";
 
 import "./App.css";
 

@@ -66,6 +66,11 @@ export default tseslint.config(
               position: "after",
             },
             {
+              pattern: "@configs/**",
+              group: "internal",
+              position: "after",
+            },
+            {
               pattern: "@models/**",
               group: "internal",
               position: "after",
