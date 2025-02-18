@@ -1,7 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import useAuthStore from "src/stores/useAuthStore";
 
 const AuthRouter = () => {
-  // TODO - check authentication and redirect if not authenticated.
+  const { isAuthenticated } = useAuthStore();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
 
   return <Outlet />;
 };
