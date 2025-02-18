@@ -1,3 +1,4 @@
+import storage from "@utils/storage";
 import axios from "axios";
 
 const rest = axios.create({
@@ -8,10 +9,10 @@ const rest = axios.create({
 });
 
 rest.interceptors.request.use((config) => {
-  const authToken = localStorage.getItem("AUTH_TOKEN");
+  const authToken = storage.getData("AUTH_TOKEN");
 
   if (authToken) {
-    config.headers.Authorization = `Bearer ${authToken}`;
+    config.headers.Authorization = `Bearer ${authToken.token}`;
   }
 
   return config;

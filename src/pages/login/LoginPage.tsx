@@ -1,9 +1,10 @@
 import useAuthLoginMutation from "@apis/auth/hooks/useAuthLoginMutation";
+import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
 import { Box, Button, TextField } from "@mui/material";
 import PageContainer from "@pages/_component/PageContainer";
+import useAuthStore from "@stores/useAuthStore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import useAuthStore from "src/stores/useAuthStore";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { login } = useAuthStore();
@@ -11,9 +12,19 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const { isLoading, isSuccess } = useAuthValidQuery();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
+
+  const navigate = useNavigate();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isSuccess) {
+    return <Navigate to="/" />;
+  }
 
   const requestLogin = (username: string, password: string) => {
     authLoginMutate(
@@ -24,7 +35,7 @@ const LoginPage = () => {
       {
         onSuccess: (data) => {
           const authorization = data.headers["authorization"];
-          login(authorization);
+          login(authorization.substring(7));
           navigate("/");
         },
       }
