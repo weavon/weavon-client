@@ -1,5 +1,6 @@
-import storage from "@utils/storage";
 import { create } from "zustand";
+
+import storage from "@utils/storage";
 
 interface AuthState {
   isAuthenticated: boolean;

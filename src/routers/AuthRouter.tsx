@@ -1,6 +1,8 @@
-import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
 import { Navigate, Outlet } from "react-router-dom";
-import useAuthStore from "src/stores/useAuthStore";
+
+import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
+
+import useAuthStore from "@stores/useAuthStore";
 
 const AuthRouter = () => {
   const { logout } = useAuthStore();
