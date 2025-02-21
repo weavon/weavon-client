@@ -9,4 +9,4 @@
 ### To Do
 
 - [ ] Check Acceptance Criteria
-- [ ] Apply Spotless
+- [ ] Local Test
