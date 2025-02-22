@@ -6,21 +6,38 @@ import styled from "styled-components";
 
 import LoginFormSchema from "@pages/login/_schema/LoginFormSchema";
 
-const PasswordController = () => {
+interface PasswordControllerProps {
+  onEnter: () => void;
+}
+
+const PasswordController = ({ onEnter }: PasswordControllerProps) => {
   const { control } = useFormContext<LoginFormSchema>();
+
+  const handleEnterKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      onEnter();
+    }
+  };
 
   return (
     <Controller
       name="password"
       control={control}
       render={({ field }) => (
-        <PasswordInput type="password" onChange={field.onChange} />
+        <PasswordInput
+          type="password"
+          placeholder="Password"
+          onChange={field.onChange}
+          onKeyDown={handleEnterKeyDown}
+        />
       )}
     />
   );
 };
 
 const PasswordInput = styled(TextField)`
+  width: 100%;
+
   margin: 10px !important;
 `;
 

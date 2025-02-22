@@ -49,6 +49,10 @@ const LoginForm = () => {
     },
   });
 
+  const handleEnter = () => {
+    handleLogin();
+  };
+
   const handleLogin = () => {
     const username = method.watch("username");
     const password = method.watch("password");
@@ -59,8 +63,8 @@ const LoginForm = () => {
   return (
     <FormProvider {...method}>
       <LoginFormContainer>
-        <UsernameController />
-        <PasswordController />
+        <UsernameController onEnter={handleEnter} />
+        <PasswordController onEnter={handleEnter} />
         <LoginFormButtonContainer>
           <Button>Sign Up</Button>
           <Button onClick={handleLogin}>Sign In</Button>
@@ -71,17 +75,22 @@ const LoginForm = () => {
 };
 
 const LoginFormContainer = styled(Box)`
+  width: 300px;
+  height: 300px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  width: 300px;
-  height: 300px;
 `;
 
 const LoginFormButtonContainer = styled(Box)`
+  width: 100%;
   margin: 10px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export default LoginForm;

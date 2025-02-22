@@ -6,21 +6,38 @@ import styled from "styled-components";
 
 import LoginFormSchema from "@pages/login/_schema/LoginFormSchema";
 
-const UsernameController = () => {
+interface UsernameControllerProps {
+  onEnter: () => void;
+}
+
+const UsernameController = ({ onEnter }: UsernameControllerProps) => {
   const { control } = useFormContext<LoginFormSchema>();
+
+  const handleEnterKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      onEnter();
+    }
+  };
 
   return (
     <Controller
       name="username"
       control={control}
       render={({ field }) => (
-        <UsernameInput type="text" onChange={field.onChange} />
+        <UsernameInput
+          type="text"
+          placeholder="Username"
+          onChange={field.onChange}
+          onKeyDown={handleEnterKeyDown}
+        />
       )}
     />
   );
 };
 
 const UsernameInput = styled(TextField)`
+  width: 100%;
+
   margin: 10px !important;
 `;
 
