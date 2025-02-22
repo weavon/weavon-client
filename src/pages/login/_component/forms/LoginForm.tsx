@@ -50,15 +50,15 @@ const LoginForm = () => {
   });
 
   const handleEnter = () => {
-    handleLogin();
+    handleSignIn();
   };
 
-  const handleLogin = () => {
-    const username = method.watch("username");
-    const password = method.watch("password");
+  const handleSignIn = method.handleSubmit((data) => {
+    const username = data.username;
+    const password = data.password;
 
     requestLogin(username, password);
-  };
+  });
 
   return (
     <FormProvider {...method}>
@@ -67,7 +67,9 @@ const LoginForm = () => {
         <PasswordController onEnter={handleEnter} />
         <LoginFormButtonContainer>
           <Button>Sign Up</Button>
-          <Button onClick={handleLogin}>Sign In</Button>
+          <Button type="submit" onClick={handleSignIn}>
+            Sign In
+          </Button>
         </LoginFormButtonContainer>
       </LoginFormContainer>
     </FormProvider>

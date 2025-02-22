@@ -23,12 +23,13 @@ const UsernameController = ({ onEnter }: UsernameControllerProps) => {
     <Controller
       name="username"
       control={control}
-      render={({ field }) => (
+      render={({ field, fieldState: { error } }) => (
         <UsernameInput
           type="text"
           placeholder="Username"
           onChange={field.onChange}
           onKeyDown={handleEnterKeyDown}
+          error={!!error}
         />
       )}
     />

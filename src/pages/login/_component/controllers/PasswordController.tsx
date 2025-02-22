@@ -23,12 +23,13 @@ const PasswordController = ({ onEnter }: PasswordControllerProps) => {
     <Controller
       name="password"
       control={control}
-      render={({ field }) => (
+      render={({ field, fieldState: { error } }) => (
         <PasswordInput
           type="password"
           placeholder="Password"
           onChange={field.onChange}
           onKeyDown={handleEnterKeyDown}
+          error={!!error}
         />
       )}
     />
