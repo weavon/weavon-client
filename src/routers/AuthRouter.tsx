@@ -1,24 +1,30 @@
+import { useEffect } from "react";
+
 import { Navigate, Outlet } from "react-router-dom";
 
 import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
 
 import useAuthStore from "@stores/useAuthStore";
+import useLoadingStore from "@stores/useLoadingStore";
 
 const AuthRouter = () => {
   const { logout } = useAuthStore();
 
-  const { isError, isLoading } = useAuthValidQuery();
+  const { setLoading } = useLoadingStore();
 
-  if (isLoading) {
-    return <div>Loading....</div>;
-  }
+  const { isError, isLoading: isAuthValidLoading } = useAuthValidQuery();
 
-  if (isError) {
-    logout();
-    return <Navigate to="/login" />;
-  }
+  useEffect(() => {
+    if (isError) {
+      logout();
+    }
+  }, [isError]);
 
-  return <Outlet />;
+  useEffect(() => {
+    setLoading(isAuthValidLoading);
+  }, [isAuthValidLoading]);
+
+  return isError ? <Navigate to={"/login"} /> : <Outlet />;
 };
 
 export default AuthRouter;
