@@ -61,6 +61,10 @@ const LoginForm = () => {
     handleSignIn();
   };
 
+  const handleSignUp = () => {
+    navigate("/join");
+  };
+
   const handleSignIn = method.handleSubmit((data) => {
     const username = data.username;
     const password = data.password;
@@ -74,7 +78,9 @@ const LoginForm = () => {
         <LoginUsernameController onEnter={handleEnter} />
         <LoginPasswordController onEnter={handleEnter} />
         <LoginFormButtonContainer>
-          <Button>Sign Up</Button>
+          <Button type="button" onClick={handleSignUp}>
+            Sign Up
+          </Button>
           <Button type="submit" onClick={handleSignIn}>
             Sign In
           </Button>
