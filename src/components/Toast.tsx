@@ -10,15 +10,17 @@ const Toast = () => {
   };
 
   return (
-    <Snackbar
-      open={open}
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      TransitionComponent={(props) => <Grow {...props} />}
-      autoHideDuration={5000}
-      onClose={handleClose}
-    >
-      <Alert severity={type}>{message}</Alert>
-    </Snackbar>
+    open && (
+      <Snackbar
+        open={open}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        TransitionComponent={(props) => <Grow {...props} />}
+        autoHideDuration={5000}
+        onClose={handleClose}
+      >
+        <Alert severity={type}>{message}</Alert>
+      </Snackbar>
+    )
   );
 };
 
