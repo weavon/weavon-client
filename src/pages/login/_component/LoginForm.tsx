@@ -57,12 +57,18 @@ const LoginForm = () => {
     );
   };
 
-  const submit = method.handleSubmit((data) => {
-    const username = data.username;
-    const password = data.password;
+  const submit = method.handleSubmit(
+    (data) => {
+      const username = data.username;
+      const password = data.password;
 
-    requestLogin(username, password);
-  });
+      requestLogin(username, password);
+    },
+    (errors) => {
+      const error = errors.username || errors.password;
+      showError(error?.message ?? "");
+    }
+  );
 
   const handleEnter = () => {
     submit();

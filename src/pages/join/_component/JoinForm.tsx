@@ -34,7 +34,10 @@ const JoinForm = () => {
     (errors) => {
       const error =
         errors.username || errors.password || errors.passwordConfirm;
-      showError(error?.message ?? "Hello");
+      showError(
+        error?.message ??
+          "Joining has failed. Check your informations and try again."
+      );
     }
   );
 
