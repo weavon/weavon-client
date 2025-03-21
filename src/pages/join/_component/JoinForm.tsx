@@ -8,7 +8,7 @@ import { Box, Button } from "@mui/material";
 
 import styled from "styled-components";
 
-import useAuthJoinMutation from "@apis/auth/hooks/useAuthJoinMutation.";
+import useAuthJoinMutation from "@apis/auth/mutations/useAuthJoinMutation.";
 
 import JoinFormSchema, {
   JoinFormObject,

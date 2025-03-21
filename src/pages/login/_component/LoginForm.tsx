@@ -8,7 +8,7 @@ import { Box, Button } from "@mui/material";
 
 import styled from "styled-components";
 
-import useAuthLoginMutation from "@apis/auth/hooks/useAuthLoginMutation";
+import useAuthLoginMutation from "@apis/auth/mutations/useAuthLoginMutation";
 
 import LoginFormSchema, {
   LoginFormObject,
