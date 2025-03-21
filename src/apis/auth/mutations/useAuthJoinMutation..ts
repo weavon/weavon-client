@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { AuthJoinRequest } from "@apis/auth/models/AuthJoin";
-import { RestErrorResponse, RestResponse } from "@apis/_models/RestResponse";
+import { RestErrorResponse, RestResponse } from "@models/io/RestResponse";
 
 import rest from "@utils/rest";
 
