@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
+import useAuthValidQuery from "@apis/auth/mutations/useAuthValidQuery";
 
 const UnAuthRouter = () => {
   const { isSuccess, isLoading } = useAuthValidQuery();

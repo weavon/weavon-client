@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import { Navigate, Outlet } from "react-router-dom";
 
-import useAuthValidQuery from "@apis/auth/hooks/useAuthValidQuery";
+import useAuthValidQuery from "@apis/auth/mutations/useAuthValidQuery";
 
 import useAuthStore from "@stores/useAuthStore";
 import useLoadingStore from "@stores/useLoadingStore";

@@ -1,12 +1,10 @@
 # Pull Request
 
-### Issue Ticket
+### Major Content
 
 ### Changes
 
-# Merge Criteria
+### Merge Criteria
 
-### To Do
-
-- [ ] Check Acceptance Criteria
 - [ ] Local Test
+- [ ] Acceptance Criteria
