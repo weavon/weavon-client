@@ -1,22 +1,27 @@
-import axios from "axios";
+import axiosClient from "@configs/axiosClient";
 
-import storage from "@utils/storage";
+const rest = (() => {
+  const get = async (url: string, params?: { [key: string]: object }) => {
+    return await axiosClient.get(url, { params });
+  };
 
-const rest = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+  const post = async (url: string, data: object) => {
+    return await axiosClient.post(url, data);
+  };
 
-rest.interceptors.request.use((config) => {
-  const authToken = storage.getData("AUTH_TOKEN");
+  const put = async (url: string, data: object) => {
+    return await axiosClient.put(url, data);
+  };
 
-  if (authToken) {
-    config.headers.Authorization = `Bearer ${authToken.token}`;
-  }
+  const patch = async (url: string, data: object) => {
+    return await axiosClient.patch(url, data);
+  };
 
-  return config;
-});
+  const del = async (url: string) => {
+    return await axiosClient.delete(url);
+  };
+
+  return { get, post, put, patch, del };
+})();
 
 export default rest;
