@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button } from "@mui/material";
 import styled from "styled-components";
 import useAuthJoinMutation from "@apis/auth/mutations/useAuthJoinMutation";
-
 import JoinFormSchema, {
   JoinFormObject,
 } from "@pages/join/_schema/JoinFormSchema";
