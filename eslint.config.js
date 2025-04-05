@@ -116,7 +116,6 @@ export default tseslint.config(
               position: "after",
             },
           ],
-          "newlines-between": "always", // 빈 줄 허용
           pathGroupsExcludedImportTypes: [],
         },
       ],

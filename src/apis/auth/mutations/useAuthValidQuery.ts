@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-
 import rest from "@utils/rest";
 
 const useAuthValidQuery = () => {
