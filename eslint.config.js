@@ -56,6 +56,26 @@ export default tseslint.config(
               position: "after",
             },
             {
+              pattern: "react-query",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "@tanstack/**",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "react-i18next",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "@i18next/**",
+              group: "external",
+              position: "after",
+            },
+            {
               pattern: "zod",
               group: "external",
               position: "after",
@@ -82,6 +102,11 @@ export default tseslint.config(
             },
             {
               pattern: "@assets/**",
+              group: "internal",
+              position: "after",
+            },
+            {
+              pattern: "@components/**",
               group: "internal",
               position: "after",
             },

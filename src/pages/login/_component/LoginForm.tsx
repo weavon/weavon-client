@@ -44,7 +44,7 @@ const LoginForm = () => {
       },
       {
         onSuccess: (data) => {
-          showSuccess(`Welcome back, ${username}!`);
+          showSuccess(`Welcome, ${username}!`);
 
           const authorization = data.headers["authorization"];
           login(authorization.substring(7));

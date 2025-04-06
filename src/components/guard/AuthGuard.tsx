@@ -7,24 +7,24 @@ import useAuthValidQuery from "@apis/auth/mutations/useAuthValidQuery";
 import useAuthStore from "@stores/useAuthStore";
 import useLoadingStore from "@stores/useLoadingStore";
 
-const AuthRouter = () => {
+const AuthGuard = () => {
   const { logout } = useAuthStore();
-
   const { setLoading } = useLoadingStore();
 
-  const { isError, isLoading: isAuthValidLoading } = useAuthValidQuery();
+  const { isError: isAuthInvalid, isLoading: isAuthValidLoading } =
+    useAuthValidQuery();
 
   useEffect(() => {
-    if (isError) {
+    if (isAuthInvalid) {
       logout();
     }
-  }, [isError]);
+  }, [isAuthInvalid]);
 
   useEffect(() => {
     setLoading(isAuthValidLoading);
   }, [isAuthValidLoading]);
 
-  return isError ? <Navigate to={"/login"} /> : <Outlet />;
+  return isAuthInvalid ? <Navigate to={"/login"} /> : <Outlet />;
 };
 
-export default AuthRouter;
+export default AuthGuard;
