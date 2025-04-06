@@ -116,6 +116,7 @@ export default tseslint.config(
               position: "after",
             },
           ],
+          "newlines-between": "always",
           pathGroupsExcludedImportTypes: [],
         },
       ],
