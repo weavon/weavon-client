@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import PageLayout from "@components/layout/PageLayout";
+
 import LoginPage from "@pages/login/LoginPage";
 import JoinPage from "@pages/join/JoinPage";
 
@@ -16,7 +18,9 @@ const AppRouter = () => (
           <Route path="/join" element={<JoinPage />} />
         </Route>
         <Route element={<AuthRouter />}>
-          <Route path="/" />
+          <Route element={<PageLayout />}>
+            <Route path="/" />
+          </Route>
         </Route>
       </Route>
     </Routes>
