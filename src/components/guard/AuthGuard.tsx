@@ -8,23 +8,21 @@ import useAuthStore from "@stores/useAuthStore";
 import useLoadingStore from "@stores/useLoadingStore";
 
 const AuthGuard = () => {
-  const { logout } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
   const { setLoading } = useLoadingStore();
 
   const { isError: isAuthInvalid, isLoading: isAuthValidLoading } =
     useAuthValidQuery();
 
   useEffect(() => {
-    if (isAuthInvalid) {
-      logout();
-    }
-  }, [isAuthInvalid]);
-
-  useEffect(() => {
     setLoading(isAuthValidLoading);
   }, [isAuthValidLoading]);
 
-  return isAuthInvalid ? <Navigate to={"/login"} /> : <Outlet />;
+  return isAuthInvalid || !isAuthenticated ? (
+    <Navigate to={"/login"} />
+  ) : (
+    <Outlet />
+  );
 };
 
 export default AuthGuard;
