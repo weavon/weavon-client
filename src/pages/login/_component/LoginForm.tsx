@@ -47,8 +47,7 @@ const LoginForm = () => {
 
           const authorization = data.headers["authorization"];
           auth.login(authorization.substring(7));
-
-          setTimeout(() => navigate("/"), 500);
+          navigate("/");
         },
         onError: () => {
           showError("Invalid username or password. Please try again.");
