@@ -1,16 +1,38 @@
+import React, { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Menu, MenuItem, Typography } from "@mui/material";
 
 import styled from "styled-components";
 
 import palette from "@assets/colors/palette";
 
+import useAuthStore from "@stores/useAuthStore";
+
 const Header = () => {
   const nav = useNavigate();
 
+  const { logout } = useAuthStore();
+
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
+
+  const menuOpen = !!menuAnchor;
+
+  const handleProfileClick = (e: React.MouseEvent<HTMLElement>) => {
+    setMenuAnchor(e.currentTarget);
+  };
+
   const handleHomeClick = () => {
     nav("/");
+  };
+
+  const handleMenuClose = () => {
+    setMenuAnchor(undefined);
+  };
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -18,7 +40,10 @@ const Header = () => {
       <Home variant="h5" onClick={handleHomeClick}>
         Weavon
       </Home>
-      <Profile />
+      <Profile onClick={handleProfileClick} />
+      <Menu open={menuOpen} anchorEl={menuAnchor} onClose={handleMenuClose}>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+      </Menu>
     </HeaderWrapper>
   );
 };
