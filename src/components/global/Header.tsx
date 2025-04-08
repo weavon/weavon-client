@@ -8,12 +8,10 @@ import styled from "styled-components";
 
 import palette from "@assets/colors/palette";
 
-import useAuthStore from "@stores/useAuthStore";
+import auth from "@utils/auth";
 
 const Header = () => {
   const nav = useNavigate();
-
-  const { logout } = useAuthStore();
 
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
 
@@ -32,7 +30,8 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    logout();
+    auth.logout();
+    nav("/login");
   };
 
   return (

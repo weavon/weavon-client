@@ -16,12 +16,11 @@ import LoginFormSchema, {
 import LoginUsernameController from "@pages/login/_component/controllers/LoginUsernameController";
 import LoginPasswordController from "@pages/login/_component/controllers/LoginPasswordController";
 
-import useAuthStore from "@stores/useAuthStore";
 import useToastStore from "@stores/useToastStore";
 
-const LoginForm = () => {
-  const { login } = useAuthStore();
+import auth from "@utils/auth";
 
+const LoginForm = () => {
   const { showSuccess, showError } = useToastStore();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
@@ -47,7 +46,7 @@ const LoginForm = () => {
           showSuccess(`Welcome, ${username}!`);
 
           const authorization = data.headers["authorization"];
-          login(authorization.substring(7));
+          auth.login(authorization.substring(7));
 
           setTimeout(() => navigate("/"), 500);
         },
