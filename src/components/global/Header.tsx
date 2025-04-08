@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { Avatar, Box, Menu, MenuItem, Typography } from "@mui/material";
+import { Avatar, Box, Menu, MenuItem } from "@mui/material";
 
 import styled from "styled-components";
 
@@ -36,9 +36,7 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Home variant="h5" onClick={handleHomeClick}>
-        Weavon
-      </Home>
+      <HomeI src="/src/assets/images/weavon.png" onClick={handleHomeClick} />
       <Profile onClick={handleProfileClick} />
       <Menu open={menuOpen} anchorEl={menuAnchor} onClose={handleMenuClose}>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -51,7 +49,7 @@ const HeaderWrapper = styled(Box)`
   width: 100%;
   height: 50px;
 
-  padding: 10px 50px;
+  padding: 10px 150px;
 
   display: flex;
   justify-content: space-between;
@@ -60,9 +58,14 @@ const HeaderWrapper = styled(Box)`
   background-color: ${palette.primary.main};
 `;
 
-const Home = styled(Typography)`
-  font-weight: bolder;
-  color: white;
+const HomeI = styled.img`
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  background: ${palette.primary.main};
+  box-shadow: 3px 3px 6px #302283, -3px -3px 6px #5038db;
+
   cursor: pointer;
 `;
 
