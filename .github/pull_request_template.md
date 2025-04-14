@@ -1,10 +1,10 @@
 # Pull Request
 
-### Reason
+### Content
 
 ### Changes
 
 ### Merge Criteria
 
+- [ ] Code Review
 - [ ] Local Test
-- [ ] Acceptance Criteria
