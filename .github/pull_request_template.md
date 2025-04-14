@@ -1,7 +1,5 @@
 # Pull Request
 
-### Content
-
 ### Changes
 
 ### Merge Criteria
