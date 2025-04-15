@@ -14,9 +14,11 @@ const Toast = () => {
       <Snackbar
         open={open}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        TransitionComponent={(props) => <Grow {...props} />}
         autoHideDuration={5000}
         onClose={handleClose}
+        slots={{
+          transition: Grow,
+        }}
       >
         <Alert severity={type}>{message}</Alert>
       </Snackbar>

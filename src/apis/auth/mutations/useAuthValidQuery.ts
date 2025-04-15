@@ -1,4 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+
+import { AuthValidResponse } from "@apis/auth/models/AuthValid";
+
+import { RestErrorResponse, RestResponse } from "@models/io/RestResponse";
+
 import rest from "@utils/rest";
 
 const useAuthValidQuery = () => {
@@ -6,9 +11,14 @@ const useAuthValidQuery = () => {
     return await rest.get("/auth/valid");
   };
 
-  return useQuery({
+  return useQuery<
+    RestResponse<AuthValidResponse>,
+    RestErrorResponse,
+    AuthValidResponse
+  >({
     queryKey: generateQueryKey(),
     queryFn,
+    select: (data) => data.data.value,
   });
 };
 
