@@ -49,10 +49,10 @@ const JoinForm = () => {
           },
           onError: (error) => {
             showError(
-              error.response?.data.value.message ?? "Joining has failed."
+              error.response?.data.value.message ?? "Joining has failed.",
             );
           },
-        }
+        },
       );
     },
     (errors) => {
@@ -60,9 +60,9 @@ const JoinForm = () => {
         errors.username || errors.password || errors.passwordConfirm;
       showError(
         error?.message ??
-          "Joining has failed. Check your informations and try again."
+          "Joining has failed. Check your informations and try again.",
       );
-    }
+    },
   );
 
   const handleSignUp = () => {

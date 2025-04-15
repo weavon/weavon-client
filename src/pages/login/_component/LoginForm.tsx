@@ -52,7 +52,7 @@ const LoginForm = () => {
         onError: () => {
           showError("Invalid username or password. Please try again.");
         },
-      }
+      },
     );
   };
 
@@ -67,9 +67,9 @@ const LoginForm = () => {
       const error = errors.username || errors.password;
       showError(
         error?.message ??
-          "Login has failed. Check your informations and try again."
+          "Login has failed. Check your informations and try again.",
       );
-    }
+    },
   );
 
   const handleEnter = () => {

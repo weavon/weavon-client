@@ -14,7 +14,7 @@ const useAuthLoginMutation = () => {
   return useMutation<RestResponse<object>, RestErrorResponse, AuthLoginRequest>(
     {
       mutationFn,
-    }
+    },
   );
 };
 

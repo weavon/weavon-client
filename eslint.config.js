@@ -145,11 +145,6 @@ export default tseslint.config(
           pathGroupsExcludedImportTypes: [],
         },
       ],
-      // ...reactHooks.configs.recommended.rules,
-      // 'react-refresh/only-export-components': [
-      //   'warn',
-      //   { allowConstantExport: true },
-      // ],
     },
-  }
+  },
 );
