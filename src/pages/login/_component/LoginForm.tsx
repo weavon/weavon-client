@@ -50,6 +50,7 @@ const LoginForm = () => {
           navigate("/");
         },
         onError: () => {
+          auth.logout();
           showError("Invalid username or password. Please try again.");
         },
       },
