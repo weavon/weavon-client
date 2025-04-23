@@ -3,7 +3,7 @@ import axiosClient from "@configs/axiosClient";
 const rest = (() => {
   const requestGet = async (
     url: string,
-    params?: { [key: string]: object }
+    params?: { [key: string]: object },
   ) => {
     return await axiosClient.get(url, { params });
   };

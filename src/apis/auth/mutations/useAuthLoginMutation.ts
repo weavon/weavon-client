@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import { AuthLoginRequest } from "@apis/auth/models/AuthLogin";
 
-import { RestErrorResponse, RestResponse } from "@models/io/RestResponse";
+import { RestErrorResponse, RestResponse } from "@models/RestResponse";
 
 import rest from "@utils/rest";
 
@@ -14,7 +14,7 @@ const useAuthLoginMutation = () => {
   return useMutation<RestResponse<object>, RestErrorResponse, AuthLoginRequest>(
     {
       mutationFn,
-    }
+    },
   );
 };
 

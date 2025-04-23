@@ -64,7 +64,9 @@ const HomeI = styled.img`
 
   border-radius: 50%;
   background: ${palette.primary.main};
-  box-shadow: 3px 3px 6px #302283, -3px -3px 6px #5038db;
+  box-shadow:
+    3px 3px 6px #302283,
+    -3px -3px 6px #5038db;
 
   cursor: pointer;
 `;
