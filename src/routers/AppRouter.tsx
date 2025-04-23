@@ -1,4 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
 
 import PageLayout from "@components/layout/PageLayout";
 import UnAuthGuard from "@components/guard/UnAuthGuard";
@@ -8,9 +12,9 @@ import LoginPage from "@pages/login/LoginPage";
 import JoinPage from "@pages/join/JoinPage";
 import HomePage from "@pages/home/HomePage";
 
-const AppRouter = () => (
-  <BrowserRouter>
-    <Routes>
+const AppRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
       <Route element={<UnAuthGuard />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} />
@@ -20,8 +24,8 @@ const AppRouter = () => (
           <Route path="/" element={<HomePage />} />
         </Route>
       </Route>
-    </Routes>
-  </BrowserRouter>
+    </Route>,
+  ),
 );
 
 export default AppRouter;

@@ -1,3 +1,5 @@
+import { RouterProvider } from "react-router-dom";
+
 import { QueryClientProvider } from "@tanstack/react-query";
 
 import { ThemeProvider } from "@mui/material";
@@ -17,7 +19,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={GlobalTheme}>
-        <AppRouter />
+        <RouterProvider router={AppRouter} />
         <Loading />
         <Toast />
       </ThemeProvider>
