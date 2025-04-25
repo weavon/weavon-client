@@ -86,6 +86,11 @@ export default tseslint.config(
               position: "after",
             },
             {
+              pattern: "zustand/**",
+              group: "external",
+              position: "after",
+            },
+            {
               pattern: "@mui/**",
               group: "external",
               position: "after",
