@@ -24,130 +24,27 @@ export default tseslint.config(
         "error",
         {
           groups: [
-            "builtin", // Node.js built-in modules
-            "external", // External modules
-            "internal", // Internal modules
-            ["parent", "sibling", "index"], // Parent, sibling, and index files
+            "builtin",
+            "external",
+            ["internal", "parent", "sibling", "index"],
           ],
           pathGroups: [
             {
-              pattern: "react",
+              pattern: "react{,/**}",
               group: "builtin",
-              position: "after",
+              position: "before",
             },
             {
-              pattern: "react-dom",
-              group: "builtin",
-              position: "after",
-            },
-            {
-              pattern: "react-router-dom",
-              group: "builtin",
-              position: "after",
-            },
-            {
-              pattern: "react-hook-form",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "@hookform/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "react-query",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "@tanstack/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "react-i18next",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "@i18next/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "zod",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "zustand",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "zustand/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "@mui/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "styled-components",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "@apis/**",
+              pattern: "@{,/**}",
               group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@assets/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@components/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@configs/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@models/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@pages/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@routers/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@stores/**",
-              group: "internal",
-              position: "after",
-            },
-            {
-              pattern: "@utils/**",
-              group: "internal",
-              position: "after",
             },
           ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
           "newlines-between": "always",
-          pathGroupsExcludedImportTypes: [],
         },
       ],
     },
