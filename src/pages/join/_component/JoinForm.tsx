@@ -20,6 +20,8 @@ import JoinPasswordConfirmController from "@pages/join/_component/controllers/Jo
 import useToastStore from "@stores/useToastStore";
 
 const JoinForm = () => {
+  const navigate = useNavigate();
+
   const { showSuccess, showError } = useToastStore();
 
   const { mutate: authJoinMutate } = useAuthJoinMutation();
@@ -32,8 +34,6 @@ const JoinForm = () => {
       passwordConfirm: "",
     },
   });
-
-  const navigate = useNavigate();
 
   const submit = method.handleSubmit(
     (data) => {

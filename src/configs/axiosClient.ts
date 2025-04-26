@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import storage from "@utils/storage";
+import useAuthStore from "@stores/useAuthStore";
 
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -10,10 +10,10 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const authToken = storage.getData("AUTH_TOKEN");
+  const authToken = useAuthStore.getState().authToken;
 
   if (authToken) {
-    config.headers.Authorization = `Bearer ${authToken.token}`;
+    config.headers.Authorization = `Bearer ${authToken}`;
   }
 
   return config;

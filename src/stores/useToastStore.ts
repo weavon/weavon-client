@@ -1,18 +1,18 @@
 import { create } from "zustand";
 
-interface ToastState {
+type ToastState = {
   open: boolean;
   message: string;
   type: "success" | "info" | "warning" | "error";
-}
+};
 
-interface ToastAction {
+type ToastAction = {
   showSuccess: (message: string) => void;
   showInfo: (message: string) => void;
   showWarning: (message: string) => void;
   showError: (message: string) => void;
   hide: () => void;
-}
+};
 
 type ToastStore = ToastState & ToastAction;
 

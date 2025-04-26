@@ -17,14 +17,15 @@ import LoginUsernameController from "@pages/login/_component/controllers/LoginUs
 import LoginPasswordController from "@pages/login/_component/controllers/LoginPasswordController";
 
 import useToastStore from "@stores/useToastStore";
-
-import auth from "@utils/auth";
+import useAuthStore from "@stores/useAuthStore";
 
 const LoginForm = () => {
   const { showSuccess, showError } = useToastStore();
+  const { login, logout } = useAuthStore();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
 
+  const navigate = useNavigate();
   const method = useForm<LoginFormSchema>({
     resolver: zodResolver(LoginFormObject),
     defaultValues: {
@@ -32,8 +33,6 @@ const LoginForm = () => {
       password: "",
     },
   });
-
-  const navigate = useNavigate();
 
   const requestLogin = (username: string, password: string) => {
     authLoginMutate(
@@ -46,11 +45,11 @@ const LoginForm = () => {
           showSuccess(`Welcome, ${username}!`);
 
           const authorization = data.headers["authorization"];
-          auth.login(authorization.substring(7));
+          login(authorization.substring(7));
           navigate("/");
         },
         onError: () => {
-          auth.logout();
+          logout();
           showError("Invalid username or password. Please try again.");
         },
       },
