@@ -1,0 +1,58 @@
+name: Pull Request Actions
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+env:
+  PNPM_VERSION: 10
+  NODE_VERSION: 22
+  CACHE_STRATEGY: pnpm
+
+jobs:
+  prettier-check:
+    name: Prettier Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
+      - run: pnpm prettier --check .
+
+  eslint-check:
+    name: Eslint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
+      - run: pnpm eslint .
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ env.CACHE_STRATEGY }}
+      - run: pnpm install
+      - run: pnpm build
