@@ -1,10 +1,8 @@
-import { Controller, useFormContext } from "react-hook-form";
-
 import { TextField } from "@mui/material";
-
+import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
-import LoginFormSchema from "@pages/login/_schema/LoginFormSchema";
+import LoginFormSchema from "@/pages/login/_schema/LoginFormSchema";
 
 interface UsernameControllerProps {
   onEnter: () => void;

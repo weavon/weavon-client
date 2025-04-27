@@ -1,11 +1,9 @@
-import { Outlet } from "react-router-dom";
-
 import { Box } from "@mui/material";
-
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
-import GlobalNavigationBar from "@components/global/GlobalNavigationBar";
-import Header from "@components/global/Header";
+import GlobalNavigationBar from "@/components/global/GlobalNavigationBar";
+import Header from "@/components/global/Header";
 
 const PageLayout = () => {
   return (

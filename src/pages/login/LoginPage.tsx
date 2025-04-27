@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
-
 import styled from "styled-components";
 
-import LoginForm from "@pages/login/_component/LoginForm";
+import LoginForm from "@/pages/login/_component/LoginForm";
 
 const LoginPage = () => {
   return (

@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
-
 import styled from "styled-components";
 
-import JoinForm from "@pages/join/_component/JoinForm";
+import JoinForm from "@/pages/join/_component/JoinForm";
 
 const JoinPage = () => {
   return (

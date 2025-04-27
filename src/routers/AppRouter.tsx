@@ -4,13 +4,12 @@ import {
   Route,
 } from "react-router-dom";
 
-import PageLayout from "@components/layout/PageLayout";
-import UnAuthGuard from "@components/guard/UnAuthGuard";
-import AuthGuard from "@components/guard/AuthGuard";
-
-import LoginPage from "@pages/login/LoginPage";
-import JoinPage from "@pages/join/JoinPage";
-import HomePage from "@pages/home/HomePage";
+import AuthGuard from "@/components/guard/AuthGuard";
+import UnAuthGuard from "@/components/guard/UnAuthGuard";
+import PageLayout from "@/components/layout/PageLayout";
+import HomePage from "@/pages/home/HomePage";
+import JoinPage from "@/pages/join/JoinPage";
+import LoginPage from "@/pages/login/LoginPage";
 
 const AppRouter = createBrowserRouter(
   createRoutesFromElements(

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import useAuthStore from "@stores/useAuthStore";
+import useAuthStore from "@/stores/useAuthStore";
 
 const axiosClient = axios.create({
   baseURL: import.meta.env.VITE_API_URL,

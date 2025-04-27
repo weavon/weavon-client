@@ -1,10 +1,8 @@
-import { Controller, useFormContext } from "react-hook-form";
-
 import { Box, TextField } from "@mui/material";
-
+import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
-import JoinFormSchema from "@pages/join/_schema/JoinFormSchema";
+import JoinFormSchema from "@/pages/join/_schema/JoinFormSchema";
 
 const JoinUsernameController = () => {
   const { control } = useFormContext<JoinFormSchema>();

@@ -1,23 +1,17 @@
-import { useNavigate } from "react-router-dom";
-
-import { FormProvider, useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { Box, Button } from "@mui/material";
-
+import { FormProvider, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import useAuthLoginMutation from "@apis/auth/mutations/useAuthLoginMutation";
-
+import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
+import LoginPasswordController from "@/pages/login/_component/controllers/LoginPasswordController";
+import LoginUsernameController from "@/pages/login/_component/controllers/LoginUsernameController";
 import LoginFormSchema, {
   LoginFormObject,
-} from "@pages/login/_schema/LoginFormSchema";
-import LoginUsernameController from "@pages/login/_component/controllers/LoginUsernameController";
-import LoginPasswordController from "@pages/login/_component/controllers/LoginPasswordController";
-
-import useToastStore from "@stores/useToastStore";
-import useAuthStore from "@stores/useAuthStore";
+} from "@/pages/login/_schema/LoginFormSchema";
+import useAuthStore from "@/stores/useAuthStore";
+import useToastStore from "@/stores/useToastStore";
 
 const LoginForm = () => {
   const { showSuccess, showError } = useToastStore();

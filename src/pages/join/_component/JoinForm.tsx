@@ -1,23 +1,17 @@
-import { useNavigate } from "react-router-dom";
-
-import { FormProvider, useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { Box, Button } from "@mui/material";
-
+import { FormProvider, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import useAuthJoinMutation from "@apis/auth/mutations/useAuthJoinMutation";
-
+import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
+import JoinPasswordConfirmController from "@/pages/join/_component/controllers/JoinPasswordConfirmController";
+import JoinPasswordController from "@/pages/join/_component/controllers/JoinPasswordController";
+import JoinUsernameController from "@/pages/join/_component/controllers/JoinUsernameController";
 import JoinFormSchema, {
   JoinFormObject,
-} from "@pages/join/_schema/JoinFormSchema";
-import JoinUsernameController from "@pages/join/_component/controllers/JoinUsernameController";
-import JoinPasswordController from "@pages/join/_component/controllers/JoinPasswordController";
-import JoinPasswordConfirmController from "@pages/join/_component/controllers/JoinPasswordConfirmController";
-
-import useToastStore from "@stores/useToastStore";
+} from "@/pages/join/_schema/JoinFormSchema";
+import useToastStore from "@/stores/useToastStore";
 
 const JoinForm = () => {
   const navigate = useNavigate();

@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
-
 import { Avatar, Box, Menu, MenuItem } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import palette from "@assets/colors/palette";
-
-import useAuthStore from "@stores/useAuthStore";
+import palette from "@/assets/colors/palette";
+import useAuthStore from "@/stores/useAuthStore";
 
 const Header = () => {
   const { logout } = useAuthStore();

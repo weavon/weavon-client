@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-import palette from "@assets/colors/palette";
+import palette from "@/assets/colors/palette";
 
 const GlobalTheme = createTheme({
   typography: {

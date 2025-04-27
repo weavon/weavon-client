@@ -1,10 +1,8 @@
-import { Controller, useFormContext } from "react-hook-form";
-
 import { TextField } from "@mui/material";
-
+import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
-import JoinFormSchema from "@pages/join/_schema/JoinFormSchema";
+import JoinFormSchema from "@/pages/join/_schema/JoinFormSchema";
 
 const JoinPasswordConfirmController = () => {
   const { control } = useFormContext<JoinFormSchema>();

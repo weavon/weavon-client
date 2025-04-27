@@ -1,6 +1,6 @@
 import { Alert, Grow, Snackbar } from "@mui/material";
 
-import useToastStore from "@stores/useToastStore";
+import useToastStore from "@/stores/useToastStore";
 
 const Toast = () => {
   const { open, message, type, hide } = useToastStore();

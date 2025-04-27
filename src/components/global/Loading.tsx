@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
-
 import styled from "styled-components";
 
-import useLoadingStore from "@stores/useLoadingStore";
+import useLoadingStore from "@/stores/useLoadingStore";
 
 const Loading = () => {
   const { isLoading } = useLoadingStore();

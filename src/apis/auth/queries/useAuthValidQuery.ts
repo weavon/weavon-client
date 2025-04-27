@@ -1,10 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { AuthValidResponse } from "@apis/auth/models/AuthValid";
-
-import { RestErrorResponse, RestResponse } from "@models/RestResponse";
-
-import rest from "@utils/rest";
+import { AuthValidResponse } from "@/apis/auth/models/AuthValid";
+import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
+import rest from "@/utils/rest";
 
 const useAuthValidQuery = () => {
   const queryFn = async () => {

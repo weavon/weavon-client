@@ -1,10 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 
-import { AuthLoginRequest } from "@apis/auth/models/AuthLogin";
-
-import { RestErrorResponse, RestResponse } from "@models/RestResponse";
-
-import rest from "@utils/rest";
+import { AuthLoginRequest } from "@/apis/auth/models/AuthLogin";
+import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
+import rest from "@/utils/rest";
 
 const useAuthLoginMutation = () => {
   const mutationFn = async (request: AuthLoginRequest) => {
