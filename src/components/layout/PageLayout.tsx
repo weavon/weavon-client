@@ -5,7 +5,7 @@ import styled from "styled-components";
 import GlobalNavigationBar from "@/components/global/GlobalNavigationBar";
 import Header from "@/components/global/Header";
 
-const PageLayout = () => {
+export default function PageLayout() {
   return (
     <PageWrapper>
       <PageHeaderWrapper>
@@ -19,7 +19,7 @@ const PageLayout = () => {
       </PageBodyWrapper>
     </PageWrapper>
   );
-};
+}
 
 const PageWrapper = styled(Box)`
   width: 100vw;
@@ -49,5 +49,3 @@ const PageContentWrapper = styled(Box)`
 
   padding: 5px;
 `;
-
-export default PageLayout;

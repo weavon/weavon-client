@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 
 import { AuthJoinRequest } from "@/apis/auth/models/AuthJoin";
 import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
-import rest from "@/utils/rest";
+import rest from "@/service/rest";
 
 const useAuthJoinMutation = () => {
   const mutationFn = async (request: AuthJoinRequest) => {

@@ -2,9 +2,9 @@ import { Box, TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
-import JoinFormSchema from "@/pages/join/_schema/JoinFormSchema";
+import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-const JoinUsernameController = () => {
+export default function JoinUsernameController() {
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -23,7 +23,7 @@ const JoinUsernameController = () => {
       )}
     />
   );
-};
+}
 
 const JoinUsernameContainer = styled(Box)`
   width: 100%;
@@ -36,5 +36,3 @@ const JoinUsernameContainer = styled(Box)`
 const UsernameInput = styled(TextField)`
   width: 100%;
 `;
-
-export default JoinUsernameController;

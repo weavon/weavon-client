@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import useLoadingStore from "@/stores/useLoadingStore";
 
-const Loading = () => {
+export default function Loading() {
   const { isLoading } = useLoadingStore();
 
   if (!isLoading) {
@@ -17,7 +17,7 @@ const Loading = () => {
       </div>
     </LoadingContainer>
   );
-};
+}
 
 const LoadingContainer = styled(Box)`
   width: 100vw;
@@ -111,5 +111,3 @@ const LoadingContainer = styled(Box)`
     }
   }
 `;
-
-export default Loading;

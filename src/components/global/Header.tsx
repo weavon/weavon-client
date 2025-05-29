@@ -7,7 +7,7 @@ import styled from "styled-components";
 import palette from "@/assets/colors/palette";
 import useAuthStore from "@/stores/useAuthStore";
 
-const Header = () => {
+export default function Header() {
   const { logout } = useAuthStore();
 
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
@@ -42,7 +42,7 @@ const Header = () => {
       </Menu>
     </HeaderWrapper>
   );
-};
+}
 
 const HeaderWrapper = styled(Box)`
   width: 100%;
@@ -74,5 +74,3 @@ const Profile = styled(Avatar)`
   width: 30px !important;
   height: 30px !important;
 `;
-
-export default Header;

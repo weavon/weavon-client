@@ -7,13 +7,14 @@ import styled from "styled-components";
 import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
 import LoginPasswordController from "@/pages/login/_component/controllers/LoginPasswordController";
 import LoginUsernameController from "@/pages/login/_component/controllers/LoginUsernameController";
-import LoginFormSchema, {
+import {
   LoginFormObject,
+  LoginFormSchema,
 } from "@/pages/login/_schema/LoginFormSchema";
 import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
-const LoginForm = () => {
+export default function LoginForm() {
   const { showSuccess, showError } = useToastStore();
   const { login, logout } = useAuthStore();
 
@@ -94,7 +95,7 @@ const LoginForm = () => {
       </LoginFormContainer>
     </FormProvider>
   );
-};
+}
 
 const LoginFormContainer = styled(Box)`
   width: 300px;
@@ -114,5 +115,3 @@ const LoginFormButtonContainer = styled(Box)`
   justify-content: flex-end;
   align-items: center;
 `;
-
-export default LoginForm;

@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 import LoginForm from "@/pages/login/_component/LoginForm";
 
-const LoginPage = () => {
+export default function LoginPage() {
   return (
     <LoginPageContainer>
       <LoginForm />
     </LoginPageContainer>
   );
-};
+}
 
 const LoginPageContainer = styled(Box)`
   display: flex;
@@ -19,5 +19,3 @@ const LoginPageContainer = styled(Box)`
   width: 100vw;
   height: 100vh;
 `;
-
-export default LoginPage;

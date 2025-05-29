@@ -11,6 +11,4 @@ export const LoginFormObject = z.object({
     .max(20, { message: "Password length should be at most 20." }),
 });
 
-type LoginFormSchema = z.infer<typeof LoginFormObject>;
-
-export default LoginFormSchema;
+export type LoginFormSchema = z.infer<typeof LoginFormObject>;

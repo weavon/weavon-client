@@ -20,6 +20,4 @@ export const JoinFormObject = z
     path: ["passwordConfirm"],
   });
 
-type JoinFormSchema = z.infer<typeof JoinFormObject>;
-
-export default JoinFormSchema;
+export type JoinFormSchema = z.infer<typeof JoinFormObject>;

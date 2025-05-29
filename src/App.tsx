@@ -10,7 +10,7 @@ import AppRouter from "@/routers/AppRouter";
 
 import "./App.css";
 
-const App = () => {
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={GlobalTheme}>
@@ -20,6 +20,4 @@ const App = () => {
       </ThemeProvider>
     </QueryClientProvider>
   );
-};
-
-export default App;
+}

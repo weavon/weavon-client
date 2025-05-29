@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 import JoinForm from "@/pages/join/_component/JoinForm";
 
-const JoinPage = () => {
+export default function JoinPage() {
   return (
     <JoinPageContainer>
       <JoinForm />
     </JoinPageContainer>
   );
-};
+}
 
 const JoinPageContainer = styled(Box)`
   display: flex;
@@ -19,5 +19,3 @@ const JoinPageContainer = styled(Box)`
   width: 100vw;
   height: 100vh;
 `;
-
-export default JoinPage;

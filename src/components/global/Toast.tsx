@@ -2,7 +2,7 @@ import { Alert, Grow, Snackbar } from "@mui/material";
 
 import useToastStore from "@/stores/useToastStore";
 
-const Toast = () => {
+export default function Toast() {
   const { open, message, type, hide } = useToastStore();
 
   const handleClose = () => {
@@ -24,6 +24,4 @@ const Toast = () => {
       </Snackbar>
     )
   );
-};
-
-export default Toast;
+}

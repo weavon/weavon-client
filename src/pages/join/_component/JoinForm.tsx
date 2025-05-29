@@ -8,12 +8,13 @@ import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
 import JoinPasswordConfirmController from "@/pages/join/_component/controllers/JoinPasswordConfirmController";
 import JoinPasswordController from "@/pages/join/_component/controllers/JoinPasswordController";
 import JoinUsernameController from "@/pages/join/_component/controllers/JoinUsernameController";
-import JoinFormSchema, {
+import {
   JoinFormObject,
+  JoinFormSchema,
 } from "@/pages/join/_schema/JoinFormSchema";
 import useToastStore from "@/stores/useToastStore";
 
-const JoinForm = () => {
+export default function JoinForm() {
   const navigate = useNavigate();
 
   const { showSuccess, showError } = useToastStore();
@@ -77,7 +78,7 @@ const JoinForm = () => {
       </JoinFormContainer>
     </FormProvider>
   );
-};
+}
 
 const JoinFormContainer = styled(Box)`
   width: 300px;
@@ -97,5 +98,3 @@ const JoinFormButtonContainer = styled(Box)`
   justify-content: flex-end;
   align-items: center;
 `;
-
-export default JoinForm;

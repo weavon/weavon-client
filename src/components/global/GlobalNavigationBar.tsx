@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
 
-const GlobalNavigationBar = () => {
+export default function GlobalNavigationBar() {
   return <GlobalNavigationBarWrapper></GlobalNavigationBarWrapper>;
-};
+}
 
 const GlobalNavigationBarWrapper = styled(Box)`
   width: 250px;
@@ -11,5 +11,3 @@ const GlobalNavigationBarWrapper = styled(Box)`
 
   padding: 5px;
 `;
-
-export default GlobalNavigationBar;

@@ -2,9 +2,9 @@ import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
-import JoinFormSchema from "@/pages/join/_schema/JoinFormSchema";
+import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-const JoinPasswordConfirmController = () => {
+export default function JoinPasswordConfirmController() {
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -21,12 +21,10 @@ const JoinPasswordConfirmController = () => {
       )}
     />
   );
-};
+}
 
 const PasswordCheckInput = styled(TextField)`
   width: 100%;
 
   margin: 10px !important;
 `;
-
-export default JoinPasswordConfirmController;
