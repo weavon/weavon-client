@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import useAuthValidQuery from "@/apis/auth/queries/useAuthValidQuery";
 import useLoadingStore from "@/stores/useLoadingStore";
 
-export default function AuthGuard() {
+function AuthGuard() {
   const { setLoading } = useLoadingStore();
 
   const { isError: isAuthInvalid, isLoading: isAuthValidLoading } =
@@ -17,3 +17,5 @@ export default function AuthGuard() {
 
   return isAuthInvalid ? <Navigate to={"/login"} /> : <Outlet />;
 }
+
+export default AuthGuard;

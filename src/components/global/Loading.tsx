@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import useLoadingStore from "@/stores/useLoadingStore";
 
-export default function Loading() {
+function Loading() {
   const { isLoading } = useLoadingStore();
 
   if (!isLoading) {
@@ -111,3 +111,5 @@ const LoadingContainer = styled(Box)`
     }
   }
 `;
+
+export default Loading;
