@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import GlobalTheme from "@/assets/themes/GlobalTheme";
 import Loading from "@/components/global/Loading";
 import Toast from "@/components/global/Toast";
-import QueryConfig from "@/configs/queryClient";
+import QueryConfig from "@/configs/QueryConfig";
 import AppRouter from "@/routers/AppRouter";
 
 import "./App.css";
