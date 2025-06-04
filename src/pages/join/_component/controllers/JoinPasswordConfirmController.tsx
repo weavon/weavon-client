@@ -1,10 +1,9 @@
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import styled from "styled-components";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
-export default function JoinPasswordConfirmController() {
+function JoinPasswordConfirmController() {
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -12,19 +11,19 @@ export default function JoinPasswordConfirmController() {
       name="passwordConfirm"
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <PasswordCheckInput
+        <TextField
           type="password"
           placeholder="Confirm Password"
           onChange={field.onChange}
           error={!!error}
+          sx={{
+            width: "100%",
+            margin: "10px !important",
+          }}
         />
       )}
     />
   );
 }
 
-const PasswordCheckInput = styled(TextField)`
-  width: 100%;
-
-  margin: 10px !important;
-`;
+export default JoinPasswordConfirmController;

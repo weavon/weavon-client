@@ -1,8 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
 import JoinPasswordConfirmController from "@/pages/join/_component/controllers/JoinPasswordConfirmController";
@@ -14,7 +13,7 @@ import {
 } from "@/pages/join/_schema/JoinFormSchema";
 import useToastStore from "@/stores/useToastStore";
 
-export default function JoinForm() {
+function JoinForm() {
   const navigate = useNavigate();
 
   const { showSuccess, showError } = useToastStore();
@@ -80,7 +79,7 @@ export default function JoinForm() {
   );
 }
 
-const JoinFormContainer = styled(Box)`
+const JoinFormContainer = styled("div")`
   width: 300px;
   height: 300px;
 
@@ -90,7 +89,7 @@ const JoinFormContainer = styled(Box)`
   align-items: center;
 `;
 
-const JoinFormButtonContainer = styled(Box)`
+const JoinFormButtonContainer = styled("div")`
   width: 100%;
   margin: 10px;
 
@@ -98,3 +97,5 @@ const JoinFormButtonContainer = styled(Box)`
   justify-content: flex-end;
   align-items: center;
 `;
+
+export default JoinForm;

@@ -5,14 +5,14 @@ import { RouterProvider } from "react-router-dom";
 import GlobalTheme from "@/assets/themes/GlobalTheme";
 import Loading from "@/components/global/Loading";
 import Toast from "@/components/global/Toast";
-import queryClient from "@/configs/queryClient";
+import QueryConfig from "@/configs/QueryConfig";
 import AppRouter from "@/routers/AppRouter";
 
 import "./App.css";
 
-export default function App() {
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={QueryConfig}>
       <ThemeProvider theme={GlobalTheme}>
         <RouterProvider router={AppRouter} />
         <Loading />
@@ -21,3 +21,5 @@ export default function App() {
     </QueryClientProvider>
   );
 }
+
+export default App;

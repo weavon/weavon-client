@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-import { Avatar, Box, Menu, MenuItem } from "@mui/material";
+import { Avatar, Box, Menu, MenuItem, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 import palette from "@/assets/colors/palette";
 import useAuthStore from "@/stores/useAuthStore";
 
-export default function Header() {
+function Header() {
   const { logout } = useAuthStore();
 
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
@@ -35,7 +34,7 @@ export default function Header() {
 
   return (
     <HeaderWrapper>
-      <HomeI src="/src/assets/images/weavon.png" onClick={handleHomeClick} />
+      <HomeIcon src="/src/assets/images/weavon.png" onClick={handleHomeClick} />
       <Profile onClick={handleProfileClick} />
       <Menu open={menuOpen} anchorEl={menuAnchor} onClose={handleMenuClose}>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -57,7 +56,7 @@ const HeaderWrapper = styled(Box)`
   background-color: ${palette.primary.main};
 `;
 
-const HomeI = styled.img`
+const HomeIcon = styled("img")`
   width: 30px;
   height: 30px;
 
@@ -74,3 +73,5 @@ const Profile = styled(Avatar)`
   width: 30px !important;
   height: 30px !important;
 `;
+
+export default Header;

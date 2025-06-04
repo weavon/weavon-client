@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
-import styled from "styled-components";
+import { styled } from "@mui/material";
 
 import LoginForm from "@/pages/login/_component/LoginForm";
 
-export default function LoginPage() {
+function LoginPage() {
   return (
     <LoginPageContainer>
       <LoginForm />
@@ -11,7 +10,7 @@ export default function LoginPage() {
   );
 }
 
-const LoginPageContainer = styled(Box)`
+const LoginPageContainer = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,3 +18,5 @@ const LoginPageContainer = styled(Box)`
   width: 100vw;
   height: 100vh;
 `;
+
+export default LoginPage;

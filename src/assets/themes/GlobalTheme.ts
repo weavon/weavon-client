@@ -4,7 +4,7 @@ import palette from "@/assets/colors/palette";
 
 const GlobalTheme = createTheme({
   typography: {
-    fontFamily: "NanumSquareRound",
+    fontFamily: "Pretendard",
     fontSize: 15,
   },
   palette: palette,

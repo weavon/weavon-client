@@ -1,8 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Button } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 
 import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
 import LoginPasswordController from "@/pages/login/_component/controllers/LoginPasswordController";
@@ -14,7 +13,7 @@ import {
 import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
-export default function LoginForm() {
+function LoginForm() {
   const { showSuccess, showError } = useToastStore();
   const { login, logout } = useAuthStore();
 
@@ -97,7 +96,7 @@ export default function LoginForm() {
   );
 }
 
-const LoginFormContainer = styled(Box)`
+const LoginFormContainer = styled("div")`
   width: 300px;
   height: 300px;
 
@@ -107,7 +106,7 @@ const LoginFormContainer = styled(Box)`
   align-items: center;
 `;
 
-const LoginFormButtonContainer = styled(Box)`
+const LoginFormButtonContainer = styled("div")`
   width: 100%;
   margin: 10px;
 
@@ -115,3 +114,5 @@ const LoginFormButtonContainer = styled(Box)`
   justify-content: flex-end;
   align-items: center;
 `;
+
+export default LoginForm;

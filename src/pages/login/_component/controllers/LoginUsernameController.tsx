@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import styled from "styled-components";
 
 import { LoginFormSchema } from "@/pages/login/_schema/LoginFormSchema";
 
@@ -8,9 +7,7 @@ interface UsernameControllerProps {
   onEnter: () => void;
 }
 
-export default function LoginUsernameController({
-  onEnter,
-}: UsernameControllerProps) {
+function LoginUsernameController({ onEnter }: UsernameControllerProps) {
   const { control } = useFormContext<LoginFormSchema>();
 
   const handleEnterKeyDown = (e: React.KeyboardEvent) => {
@@ -24,20 +21,20 @@ export default function LoginUsernameController({
       name="username"
       control={control}
       render={({ field, fieldState: { error } }) => (
-        <UsernameInput
+        <TextField
           type="text"
           placeholder="Username"
           onChange={field.onChange}
           onKeyDown={handleEnterKeyDown}
           error={!!error}
+          sx={{
+            width: "100%",
+            margin: "10px !important",
+          }}
         />
       )}
     />
   );
 }
 
-const UsernameInput = styled(TextField)`
-  width: 100%;
-
-  margin: 10px !important;
-`;
+export default LoginUsernameController;

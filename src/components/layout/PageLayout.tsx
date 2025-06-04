@@ -1,11 +1,10 @@
-import { Box } from "@mui/material";
+import { styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import styled from "styled-components";
 
 import GlobalNavigationBar from "@/components/global/GlobalNavigationBar";
 import Header from "@/components/global/Header";
 
-export default function PageLayout() {
+function PageLayout() {
   return (
     <PageWrapper>
       <PageHeaderWrapper>
@@ -21,7 +20,7 @@ export default function PageLayout() {
   );
 }
 
-const PageWrapper = styled(Box)`
+const PageWrapper = styled("div")`
   width: 100vw;
   height: 100vh;
 
@@ -29,23 +28,25 @@ const PageWrapper = styled(Box)`
   flex-direction: column;
 `;
 
-const PageHeaderWrapper = styled(Box)`
+const PageHeaderWrapper = styled("div")`
   width: 100%;
 
   display: flex;
   flex-direction: column;
 `;
 
-const PageBodyWrapper = styled(Box)`
+const PageBodyWrapper = styled("div")`
   width: 100%;
   height: 100%;
 
   display: flex;
 `;
 
-const PageContentWrapper = styled(Box)`
+const PageContentWrapper = styled("div")`
   width: 100%;
   height: 100%;
 
   padding: 5px;
 `;
+
+export default PageLayout;

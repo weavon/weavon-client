@@ -2,14 +2,14 @@ import axios from "axios";
 
 import useAuthStore from "@/stores/useAuthStore";
 
-const axiosClient = axios.create({
+const restService = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-axiosClient.interceptors.request.use((config) => {
+restService.interceptors.request.use((config) => {
   const authToken = useAuthStore.getState().authToken;
 
   if (authToken) {
@@ -19,4 +19,4 @@ axiosClient.interceptors.request.use((config) => {
   return config;
 });
 
-export default axiosClient;
+export default restService;
