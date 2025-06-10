@@ -4,6 +4,7 @@ import { Avatar, Box, Menu, MenuItem, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import palette from "@/assets/colors/palette";
+import ProjectList from "@/components/global/ProjectList";
 import useAuthStore from "@/stores/useAuthStore";
 
 function Header() {
@@ -35,6 +36,7 @@ function Header() {
   return (
     <HeaderWrapper>
       <HomeIcon src="/src/assets/images/weavon.png" onClick={handleHomeClick} />
+      <ProjectList />
       <Profile onClick={handleProfileClick} />
       <Menu open={menuOpen} anchorEl={menuAnchor} onClose={handleMenuClose}>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>

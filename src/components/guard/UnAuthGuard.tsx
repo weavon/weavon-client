@@ -13,7 +13,7 @@ function UnAuthGuard() {
 
   useEffect(() => {
     setLoading(isAuthValidLoading);
-  }, [isAuthValidLoading]);
+  }, [isAuthValidLoading, setLoading]);
 
   return isAuthValid ? <Navigate to="/" /> : <Outlet />;
 }
