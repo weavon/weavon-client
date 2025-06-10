@@ -21,6 +21,7 @@ const ProjectListContainer = styled(Select)`
   width: 500px;
   height: 25px;
 
+  color: ${palette.grayscale.white};
   border: 1px solid ${palette.grayscale.white};
 `;
 
