@@ -3,25 +3,25 @@ import { MenuItem, Select, styled } from "@mui/material";
 import useProjectNamesQuery from "@/apis/projects/queries/useProjectNamesQuery";
 import palette from "@/assets/colors/palette";
 
-function ProjectSelect() {
+function ProjectList() {
   const { data: projectNames } = useProjectNamesQuery({});
 
   return (
-    <ProjectSelectCotainer>
+    <ProjectListContainer>
       {projectNames?.map(({ projectId, projectName }) => (
         <MenuItem key={projectId} value={projectId}>
           {projectName}
         </MenuItem>
       ))}
-    </ProjectSelectCotainer>
+    </ProjectListContainer>
   );
 }
 
-const ProjectSelectCotainer = styled(Select)`
+const ProjectListContainer = styled(Select)`
   width: 500px;
   height: 25px;
 
   border: 1px solid ${palette.grayscele.white};
 `;
 
-export default ProjectSelect;
+export default ProjectList;
