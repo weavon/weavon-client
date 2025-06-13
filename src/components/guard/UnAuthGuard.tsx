@@ -10,14 +10,17 @@ function UnAuthGuard() {
   const { setLoading } = useLoadingStore();
   const { logout } = useAuthStore();
 
-  const { isSuccess: isAuthValid, isLoading: isAuthValidLoading } =
-    useAuthValidQuery();
+  const {
+    isSuccess: isAuthValid,
+    isFetched: isAuthValidFetched,
+    isLoading: isAuthValidLoading,
+  } = useAuthValidQuery();
 
   useEffect(() => {
-    if (!isAuthValid) {
+    if (isAuthValidFetched && !isAuthValid) {
       logout();
     }
-  }, [isAuthValid, logout]);
+  }, [isAuthValid, isAuthValidFetched, logout]);
 
   useEffect(() => {
     setLoading(isAuthValidLoading);
