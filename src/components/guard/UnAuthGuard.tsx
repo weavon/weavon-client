@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 
-import { Navigate, Outlet } from "react-router-dom";
-
 import useAuthValidQuery from "@/apis/auth/queries/useAuthValidQuery";
+import Guard from "@/components/guard/Guard";
 import useAuthStore from "@/stores/useAuthStore";
 import useLoadingStore from "@/stores/useLoadingStore";
 
@@ -26,7 +25,9 @@ function UnAuthGuard() {
     setLoading(isAuthValidLoading);
   }, [isAuthValidLoading, setLoading]);
 
-  return isAuthValid ? <Navigate to="/" /> : <Outlet />;
+  return (
+    <Guard render={isAuthValidFetched} guard={isAuthValid} navigateTo="/" />
+  );
 }
 
 export default UnAuthGuard;
