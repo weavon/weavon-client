@@ -24,7 +24,7 @@ restService.interceptors.response.use(
   (response) => {
     const bearerToken = response.headers["authorization"];
 
-    if (bearerToken) {
+    if (bearerToken && bearerToken.startsWith("Bearer ")) {
       const accessToken = bearerToken.substring(7);
       useAuthStore.getState().login(accessToken);
     }
