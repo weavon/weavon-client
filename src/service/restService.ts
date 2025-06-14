@@ -7,6 +7,7 @@ const restService = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 });
 
 restService.interceptors.request.use((config) => {
