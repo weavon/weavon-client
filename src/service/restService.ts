@@ -11,13 +11,29 @@ const restService = axios.create({
 });
 
 restService.interceptors.request.use((config) => {
-  const authToken = useAuthStore.getState().authToken;
+  const accessToken = useAuthStore.getState().accessToken;
 
-  if (authToken) {
-    config.headers.Authorization = `Bearer ${authToken}`;
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
   return config;
 });
+
+restService.interceptors.response.use(
+  (response) => {
+    const bearerToken = response.headers["authorization"];
+
+    if (bearerToken && bearerToken.startsWith("Bearer ")) {
+      const accessToken = bearerToken.substring(7);
+      useAuthStore.getState().login(accessToken);
+    }
+
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 export default restService;

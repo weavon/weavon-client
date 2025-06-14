@@ -15,7 +15,7 @@ import useToastStore from "@/stores/useToastStore";
 
 function LoginForm() {
   const { showSuccess, showError } = useToastStore();
-  const { login, logout } = useAuthStore();
+  const { logout } = useAuthStore();
 
   const { mutate: authLoginMutate } = useAuthLoginMutation();
 
@@ -35,11 +35,8 @@ function LoginForm() {
         password,
       },
       {
-        onSuccess: (data) => {
+        onSuccess: () => {
           showSuccess(`Welcome, ${username}!`);
-
-          const authorization = data.headers["authorization"];
-          login(authorization.substring(7));
           navigate("/");
         },
         onError: () => {
