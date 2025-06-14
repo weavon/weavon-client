@@ -11,10 +11,10 @@ const restService = axios.create({
 });
 
 restService.interceptors.request.use((config) => {
-  const authToken = useAuthStore.getState().authToken;
+  const accessToken = useAuthStore.getState().accessToken;
 
-  if (authToken) {
-    config.headers.Authorization = `Bearer ${authToken}`;
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
   return config;
