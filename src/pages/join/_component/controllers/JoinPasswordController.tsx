@@ -1,9 +1,12 @@
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
 function JoinPasswordController() {
+  const { t } = useTranslation();
+
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -13,7 +16,7 @@ function JoinPasswordController() {
       render={({ field, fieldState: { error } }) => (
         <TextField
           type="password"
-          placeholder="Password"
+          placeholder={t("join.form.label.PASSWORD")}
           onChange={field.onChange}
           error={!!error}
           sx={{

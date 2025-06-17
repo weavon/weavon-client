@@ -1,0 +1,14 @@
+{
+  "form": {
+    "label": {
+      "SIGN_UP": "Sign Up",
+      "SIGN_IN": "Sign In",
+      "USERNAME": "Username",
+      "PASSWORD": "Password"
+    },
+    "message": {
+      "LOGIN_SUCCESS": "Welcome {{username}}",
+      "LOGIN_FAILED": "Login has failed. Check your informations and try again."
+    }
+  }
+}

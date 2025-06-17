@@ -1,1 +1,9 @@
-{}
+{
+  "form": {
+    "message": {
+      "FIELD_IS_REQUIRED": "{{field}} is required.",
+      "FIELD_LENGTH_SHOULD_BE_AT_LEAST": "{{field}} length should be at least {{length}}.",
+      "FIELD_LENGTH_SHOULD_BE_AT_MOST": "{{field}} length should be at most {{length}}."
+    }
+  }
+}

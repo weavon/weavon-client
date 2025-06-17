@@ -2,6 +2,7 @@ import React from "react";
 
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 import { LoginFormSchema } from "@/pages/login/_schema/LoginFormSchema";
 
@@ -10,6 +11,8 @@ interface UsernameControllerProps {
 }
 
 function LoginUsernameController({ onEnter }: UsernameControllerProps) {
+  const { t } = useTranslation();
+
   const { control } = useFormContext<LoginFormSchema>();
 
   const handleEnterKeyDown = (e: React.KeyboardEvent) => {
@@ -25,7 +28,7 @@ function LoginUsernameController({ onEnter }: UsernameControllerProps) {
       render={({ field, fieldState: { error } }) => (
         <TextField
           type="text"
-          placeholder="Username"
+          placeholder={t("login.form.label.USERNAME")}
           onChange={field.onChange}
           onKeyDown={handleEnterKeyDown}
           error={!!error}

@@ -1,9 +1,12 @@
 import { Box, TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
 
 function JoinUsernameController() {
+  const { t } = useTranslation();
+
   const { control } = useFormContext<JoinFormSchema>();
 
   return (
@@ -20,7 +23,7 @@ function JoinUsernameController() {
         >
           <TextField
             type="text"
-            placeholder="Username"
+            placeholder={t("join.form.label.USERNAME")}
             onChange={field.onChange}
             error={!!error}
             sx={{

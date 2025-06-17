@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, styled } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
@@ -15,6 +16,7 @@ import useToastStore from "@/stores/useToastStore";
 
 function JoinForm() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { showSuccess, showError } = useToastStore();
 
@@ -71,7 +73,7 @@ function JoinForm() {
         <JoinPasswordConfirmController />
         <JoinFormButtonContainer>
           <Button type="submit" onClick={handleSignUp}>
-            Sign Up
+            {t("join.form.label.SIGN_UP")}
           </Button>
         </JoinFormButtonContainer>
       </JoinFormContainer>
