@@ -5,9 +5,9 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import useAuthJoinMutation from "@/apis/auth/mutations/useAuthJoinMutation";
-import JoinPasswordConfirmController from "@/pages/join/_component/controllers/JoinPasswordConfirmController";
-import JoinPasswordController from "@/pages/join/_component/controllers/JoinPasswordController";
-import JoinUsernameController from "@/pages/join/_component/controllers/JoinUsernameController";
+import JoinPasswordConfirmField from "@/pages/join/_components/join-fields/JoinPasswordConfirmField";
+import JoinPasswordField from "@/pages/join/_components/join-fields/JoinPasswordField";
+import JoinUsernameField from "@/pages/join/_components/join-fields/JoinUsernameField";
 import {
   JoinFormObject,
   JoinFormSchema,
@@ -66,9 +66,9 @@ function JoinForm() {
   return (
     <FormProvider {...method}>
       <JoinFormContainer>
-        <JoinUsernameController />
-        <JoinPasswordController />
-        <JoinPasswordConfirmController />
+        <JoinUsernameField />
+        <JoinPasswordField />
+        <JoinPasswordConfirmField />
         <JoinFormButtonContainer>
           <Button type="submit" onClick={handleSignUp}>
             {t("join.form.label.SIGN_UP")}

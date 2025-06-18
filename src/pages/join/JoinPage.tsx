@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-import JoinForm from "@/pages/join/_component/JoinForm";
+import JoinForm from "@/pages/join/_components/JoinForm";
 
 function JoinPage() {
   return (
