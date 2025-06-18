@@ -6,11 +6,11 @@ import { useTranslation } from "react-i18next";
 
 import { LoginFormSchema } from "@/pages/login/_schema/LoginFormSchema";
 
-interface UsernameControllerProps {
+interface LoginUsernameFieldProps {
   onEnter: () => void;
 }
 
-function LoginUsernameController({ onEnter }: UsernameControllerProps) {
+function LoginUsernameField({ onEnter }: LoginUsernameFieldProps) {
   const { t } = useTranslation();
 
   const { control } = useFormContext<LoginFormSchema>();
@@ -42,4 +42,4 @@ function LoginUsernameController({ onEnter }: UsernameControllerProps) {
   );
 }
 
-export default LoginUsernameController;
+export default LoginUsernameField;

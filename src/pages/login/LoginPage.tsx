@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-import LoginForm from "@/pages/login/_component/LoginForm";
+import LoginForm from "@/pages/login/_components/LoginForm";
 
 function LoginPage() {
   return (

@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
-import LoginPasswordController from "@/pages/login/_component/controllers/LoginPasswordController";
-import LoginUsernameController from "@/pages/login/_component/controllers/LoginUsernameController";
+import LoginPasswordField from "@/pages/login/_components/login-fields/LoginPasswordField";
+import LoginUsernameField from "@/pages/login/_components/login-fields/LoginUsernameField";
 import {
   LoginFormObject,
   LoginFormSchema,
@@ -81,8 +81,8 @@ function LoginForm() {
   return (
     <FormProvider {...method}>
       <LoginFormContainer>
-        <LoginUsernameController onEnter={handleEnter} />
-        <LoginPasswordController onEnter={handleEnter} />
+        <LoginUsernameField onEnter={handleEnter} />
+        <LoginPasswordField onEnter={handleEnter} />
         <LoginFormButtonContainer>
           <Button type="button" onClick={handleSignUp}>
             {t("login.form.label.SIGN_UP")}

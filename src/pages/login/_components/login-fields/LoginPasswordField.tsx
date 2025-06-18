@@ -1,13 +1,24 @@
+import React from "react";
+
 import { TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { JoinFormSchema } from "@/pages/join/_schema/JoinFormSchema";
+import { LoginFormSchema } from "@/pages/login/_schema/LoginFormSchema";
 
-function JoinPasswordController() {
+interface LoginPasswordFieldProps {
+  onEnter: () => void;
+}
+
+function LoginPasswordField({ onEnter }: LoginPasswordFieldProps) {
   const { t } = useTranslation();
+  const { control } = useFormContext<LoginFormSchema>();
 
-  const { control } = useFormContext<JoinFormSchema>();
+  const handleEnterKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      onEnter();
+    }
+  };
 
   return (
     <Controller
@@ -16,8 +27,9 @@ function JoinPasswordController() {
       render={({ field, fieldState: { error } }) => (
         <TextField
           type="password"
-          placeholder={t("join.form.label.PASSWORD")}
+          placeholder={t("login.form.label.PASSWORD")}
           onChange={field.onChange}
+          onKeyDown={handleEnterKeyDown}
           error={!!error}
           sx={{
             width: "100%",
@@ -29,4 +41,4 @@ function JoinPasswordController() {
   );
 }
 
-export default JoinPasswordController;
+export default LoginPasswordField;
