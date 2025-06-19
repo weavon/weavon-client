@@ -59,10 +59,7 @@ function LoginForm() {
     },
     (errors) => {
       const errorMessage = errors.username?.message || errors.password?.message;
-
-      if (errorMessage) {
-        showError(errorMessage);
-      }
+      showError(errorMessage || t("login.form.message.LOGIN_FAILED"));
     },
   );
 
