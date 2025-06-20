@@ -15,14 +15,14 @@ import {
 import useToastStore from "@/stores/useToastStore";
 
 const JoinForm = () => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { showSuccess, showError } = useToastStore();
 
-  const { mutate: authJoinMutate } = useAuthJoinMutation();
+  const { mutate: mutateAuthJoin } = useAuthJoinMutation();
 
-  const method = useForm<JoinFormSchema>({
+  const joinForm = useForm<JoinFormSchema>({
     resolver: zodResolver(JoinFormObject),
     defaultValues: {
       username: "",
@@ -31,9 +31,9 @@ const JoinForm = () => {
     },
   });
 
-  const submit = method.handleSubmit(
+  const submitJoin = joinForm.handleSubmit(
     (data) => {
-      authJoinMutate(
+      mutateAuthJoin(
         {
           username: data.username,
           password: data.password,
@@ -60,20 +60,20 @@ const JoinForm = () => {
   );
 
   const handleSignUp = () => {
-    submit();
+    submitJoin();
   };
 
   return (
-    <FormProvider {...method}>
+    <FormProvider {...joinForm}>
       <JoinFormContainer>
         <JoinUsernameField />
         <JoinPasswordField />
         <JoinPasswordConfirmField />
-        <JoinFormButtonContainer>
+        <JoinFormButtonWrapper>
           <Button type="submit" onClick={handleSignUp}>
             {t("join.form.label.SIGN_UP")}
           </Button>
-        </JoinFormButtonContainer>
+        </JoinFormButtonWrapper>
       </JoinFormContainer>
     </FormProvider>
   );
@@ -89,7 +89,7 @@ const JoinFormContainer = styled("div")`
   align-items: center;
 `;
 
-const JoinFormButtonContainer = styled("div")`
+const JoinFormButtonWrapper = styled("div")`
   width: 100%;
   margin: 10px;
 

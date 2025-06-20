@@ -1,10 +1,10 @@
 import { styled } from "@mui/material";
 
 const GlobalNavigationBar = () => {
-  return <GlobalNavigationBarWrapper></GlobalNavigationBarWrapper>;
+  return <GlobalNavigationBarContainer></GlobalNavigationBarContainer>;
 };
 
-const GlobalNavigationBarWrapper = styled("div")`
+const GlobalNavigationBarContainer = styled("div")`
   width: 250px;
   height: 100%;
 

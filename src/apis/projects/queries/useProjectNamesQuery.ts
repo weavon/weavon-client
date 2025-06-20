@@ -7,11 +7,11 @@ import {
 import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
 import restService from "@/service/restService";
 
-const useProjectNamesQuery = (request: ProjectNamesRequest) => {
+const useProjectNamesQuery = (request?: ProjectNamesRequest) => {
   const projectNamesQuery = () => {
     return restService.get("/projects/names", {
       params: {
-        userId: request.userId,
+        userId: request?.userId,
       },
     });
   };
@@ -27,7 +27,7 @@ const useProjectNamesQuery = (request: ProjectNamesRequest) => {
   });
 };
 
-const generateQueryKey = (request: ProjectNamesRequest) => {
+const generateQueryKey = (request?: ProjectNamesRequest) => {
   return ["projects", "names", { ...request }];
 };
 

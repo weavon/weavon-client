@@ -15,14 +15,14 @@ import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const { logout } = useAuthStore();
   const { showSuccess, showError } = useToastStore();
 
-  const { mutate: authLoginMutate } = useAuthLoginMutation();
+  const { mutate: mutateAuthLogin } = useAuthLoginMutation();
 
-  const navigate = useNavigate();
   const method = useForm<LoginFormSchema>({
     resolver: zodResolver(LoginFormObject),
     defaultValues: {
@@ -32,7 +32,7 @@ const LoginForm = () => {
   });
 
   const requestLogin = (username: string, password: string) => {
-    authLoginMutate(
+    mutateAuthLogin(
       {
         username,
         password,
@@ -50,7 +50,7 @@ const LoginForm = () => {
     );
   };
 
-  const submit = method.handleSubmit(
+  const submitLogin = method.handleSubmit(
     (data) => {
       const username = data.username;
       const password = data.password;
@@ -64,7 +64,7 @@ const LoginForm = () => {
   );
 
   const handleEnter = () => {
-    submit();
+    submitLogin();
   };
 
   const handleSignUp = () => {
@@ -72,7 +72,7 @@ const LoginForm = () => {
   };
 
   const handleSignIn = () => {
-    submit();
+    submitLogin();
   };
 
   return (
@@ -80,20 +80,20 @@ const LoginForm = () => {
       <LoginFormContainer>
         <LoginUsernameField onEnter={handleEnter} />
         <LoginPasswordField onEnter={handleEnter} />
-        <LoginFormButtonContainer>
-          <Button type="button" onClick={handleSignUp}>
+        <LoginFormButtonWrapper>
+          <Button onClick={handleSignUp}>
             {t("login.form.label.SIGN_UP")}
           </Button>
-          <Button type="submit" onClick={handleSignIn}>
+          <Button onClick={handleSignIn}>
             {t("login.form.label.SIGN_IN")}
           </Button>
-        </LoginFormButtonContainer>
+        </LoginFormButtonWrapper>
       </LoginFormContainer>
     </FormProvider>
   );
 };
 
-const LoginFormContainer = styled("div")`
+const LoginFormContainer = styled("form")`
   width: 300px;
   height: 300px;
 
@@ -103,7 +103,7 @@ const LoginFormContainer = styled("div")`
   align-items: center;
 `;
 
-const LoginFormButtonContainer = styled("div")`
+const LoginFormButtonWrapper = styled("div")`
   width: 100%;
   margin: 10px;
 

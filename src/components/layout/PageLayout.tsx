@@ -6,30 +6,21 @@ import Header from "@/components/global/Header";
 
 const PageLayout = () => {
   return (
-    <PageWrapper>
-      <PageHeaderWrapper>
-        <Header />
-      </PageHeaderWrapper>
+    <PageContainer>
+      <Header />
       <PageBodyWrapper>
         <GlobalNavigationBar />
         <PageContentWrapper>
           <Outlet />
         </PageContentWrapper>
       </PageBodyWrapper>
-    </PageWrapper>
+    </PageContainer>
   );
 };
 
-const PageWrapper = styled("div")`
+const PageContainer = styled("div")`
   width: 100vw;
   height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-`;
-
-const PageHeaderWrapper = styled("div")`
-  width: 100%;
 
   display: flex;
   flex-direction: column;

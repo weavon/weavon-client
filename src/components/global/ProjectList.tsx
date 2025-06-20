@@ -4,7 +4,7 @@ import useProjectNamesQuery from "@/apis/projects/queries/useProjectNamesQuery";
 import palette from "@/assets/colors/palette";
 
 const ProjectList = () => {
-  const { data: projectNames } = useProjectNamesQuery({});
+  const { data: projectNames } = useProjectNamesQuery();
 
   return (
     <ProjectListContainer>

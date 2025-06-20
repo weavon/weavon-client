@@ -8,11 +8,11 @@ import ProjectList from "@/components/global/ProjectList";
 import useAuthStore from "@/stores/useAuthStore";
 
 const Header = () => {
+  const nav = useNavigate();
+
   const { logout } = useAuthStore();
 
   const [menuAnchor, setMenuAnchor] = useState<HTMLElement>();
-
-  const nav = useNavigate();
 
   const menuOpen = !!menuAnchor;
 
