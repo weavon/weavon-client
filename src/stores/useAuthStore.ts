@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import encryptSessionStorage from "@/service/encryptSessionStorage";
+
 type AuthState = {
   accessToken: string | null;
 };
@@ -21,7 +23,7 @@ const useAuthStore = create<AuthStore>()(
     }),
     {
       name: "auth-token",
-      storage: createJSONStorage(() => sessionStorage),
+      storage: createJSONStorage(() => encryptSessionStorage),
     },
   ),
 );
