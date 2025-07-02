@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-type ProjectStates = {
+type ProjectState = {
   projectId?: number;
   projectName?: string;
 };
 
-type ProjectActions = {
-  setProject: (project: ProjectStates) => void;
+type ProjectAction = {
+  setProject: (project: ProjectState) => void;
 };
 
-type ProjectStore = ProjectStates & ProjectActions;
+type ProjectStore = ProjectState & ProjectAction;
 
 const useProjectStore = create<ProjectStore>((set) => ({
   setProject: ({ projectId, projectName }) => set({ projectId, projectName }),

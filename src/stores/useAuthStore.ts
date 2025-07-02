@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
+import encryptSessionStorage from "@/service/encryptSessionService";
+
 type AuthState = {
   accessToken: string | null;
 };
@@ -14,14 +16,17 @@ type AuthStore = AuthState & AuthAction;
 
 const useAuthStore = create<AuthStore>()(
   persist(
-    (set) => ({
+    (set, _get, store) => ({
       accessToken: null,
       login: (token: string) => set({ accessToken: token }),
-      logout: () => set({ accessToken: null }),
+      logout: () => {
+        set({ accessToken: null });
+        store.persist.clearStorage();
+      },
     }),
     {
       name: "auth-token",
-      storage: createJSONStorage(() => sessionStorage),
+      storage: createJSONStorage(() => encryptSessionStorage),
     },
   ),
 );
