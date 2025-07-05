@@ -5,11 +5,11 @@ import {
   ProjectNamesResponse,
 } from "@/apis/projects/models/ProjectNames";
 import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
-import restService from "@/service/restService";
+import rest from "@/service/rest";
 
 const useProjectNamesQuery = (request?: ProjectNamesRequest) => {
   const projectNamesQuery = () => {
-    return restService.get("/projects/names", {
+    return rest.get("/projects/names", {
       params: {
         userId: request?.userId,
       },

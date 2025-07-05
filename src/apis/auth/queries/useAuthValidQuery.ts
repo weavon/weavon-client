@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { AuthValidResponse } from "@/apis/auth/models/AuthValid";
 import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
-import restService from "@/service/restService";
+import rest from "@/service/rest";
 
 const useAuthValidQuery = () => {
-  const authValidQuery = () => restService.get("/auth/valid");
+  const authValidQuery = () => rest.get("/auth/valid");
 
   return useQuery<
     RestResponse<AuthValidResponse>,
