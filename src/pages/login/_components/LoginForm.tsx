@@ -4,7 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
-import useAuthLoginMutation from "@/apis/auth/mutations/useAuthLoginMutation";
+import useLoginMutation from "@/apis/security/mutations/useAuthLoginMutation";
 import LoginPasswordField from "@/pages/login/_components/login-fields/LoginPasswordField";
 import LoginUsernameField from "@/pages/login/_components/login-fields/LoginUsernameField";
 import {
@@ -21,7 +21,7 @@ const LoginForm = () => {
   const { logout } = useAuthStore();
   const { showSuccess, showError } = useToastStore();
 
-  const { mutate: mutateAuthLogin } = useAuthLoginMutation();
+  const { mutate: mutateAuthLogin } = useLoginMutation();
 
   const method = useForm<LoginFormSchema>({
     resolver: zodResolver(LoginFormObject),
