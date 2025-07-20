@@ -10,6 +10,7 @@ const Guard = ({ render, guard, navigateTo }: GuardProps) => {
   if (!render) return null;
 
   if (guard) {
+    console.log("GUARD", guard);
     return <Navigate to={navigateTo} />;
   }
 

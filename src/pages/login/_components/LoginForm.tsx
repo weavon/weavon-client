@@ -11,14 +11,12 @@ import {
   LoginFormObject,
   LoginFormSchema,
 } from "@/pages/login/_schema/LoginFormSchema";
-import useAuthStore from "@/stores/useAuthStore";
 import useToastStore from "@/stores/useToastStore";
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const { logout } = useAuthStore();
   const { showSuccess, showError } = useToastStore();
 
   const { mutate: mutateAuthLogin } = useLoginMutation();
@@ -43,7 +41,6 @@ const LoginForm = () => {
           navigate("/");
         },
         onError: () => {
-          logout();
           showError(t("login.form.message.LOGIN_FAILED"));
         },
       },
@@ -95,7 +92,6 @@ const LoginForm = () => {
 
 const LoginFormContainer = styled("form")`
   width: 300px;
-  height: 300px;
 
   display: flex;
   flex-direction: column;

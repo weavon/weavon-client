@@ -2,7 +2,7 @@ import axios from "axios";
 
 import useAuthStore from "@/stores/useAuthStore";
 
-const rest = axios.create({
+const restService = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
@@ -10,7 +10,7 @@ const rest = axios.create({
   withCredentials: true,
 });
 
-rest.interceptors.request.use((config) => {
+restService.interceptors.request.use((config) => {
   const accessToken = useAuthStore.getState().accessToken;
 
   if (accessToken) {
@@ -20,7 +20,7 @@ rest.interceptors.request.use((config) => {
   return config;
 });
 
-rest.interceptors.response.use(
+restService.interceptors.response.use(
   (response) => {
     const bearerToken = response.headers["authorization"];
 
@@ -36,4 +36,4 @@ rest.interceptors.response.use(
   },
 );
 
-export default rest;
+export default restService;

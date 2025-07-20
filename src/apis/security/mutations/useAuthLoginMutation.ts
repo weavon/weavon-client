@@ -2,11 +2,11 @@ import { useMutation } from "@tanstack/react-query";
 
 import { LoginRequest } from "@/apis/security/models/Login";
 import { RestErrorResponse, RestResponse } from "@/models/RestResponse";
-import rest from "@/service/rest";
+import restService from "@/service/restService";
 
 const useLoginMutation = () => {
   const authLoginMutation = (request: LoginRequest) => {
-    return rest.post("/login", request);
+    return restService.post("/login", request);
   };
 
   return useMutation<RestResponse<object>, RestErrorResponse, LoginRequest>({

@@ -7,7 +7,9 @@ import useLoadingStore from "@/stores/useLoadingStore";
 
 const UnAuthGuard = () => {
   const { setLoading } = useLoadingStore();
-  const { logout } = useAuthStore();
+  const { accessToken, logout } = useAuthStore();
+
+  console.log("accessToken", accessToken);
 
   const {
     isSuccess: isAuthValid,
